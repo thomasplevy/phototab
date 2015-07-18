@@ -1,4 +1,5 @@
-PhotoTab = function() {
+/*global chrome */
+var PhotoTab = function() {
 
 	this.CLIENT_ID = 'e93cb714fd35495691271c8230693731';
 	// this.EXTENSION_URL = chrome.extension.getURL( '/' );
@@ -45,14 +46,11 @@ PhotoTab = function() {
 	};
 
 
-
 	/**
 	 * Attempt to load the Instagram Access Token from chrome storage
 	 * @return mixed
 	 */
 	this.get_token = function() {
-
-		var _this = this;
 
 		chrome.storage.sync.get( 'access_token', function( items ) {
 
