@@ -7,5 +7,8 @@
     "newtab": "index.html"
   },
   "manifest_version": 2,
-  "permissions": [ "identity", "storage", "https://api.instagram.com/*" ]
+  "permissions": [ "identity", "notifications", "storage", "https://api.instagram.com/*" ],
+  "sandbox": {
+     "pages": ["templates.html"]
+  }
 }

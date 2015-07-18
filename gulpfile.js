@@ -75,7 +75,11 @@ var reportError = function( error ) {
 	console.error( report );
 
 	// Prevent the 'watch' task from stopping
-	this.emit( 'end' );
+	if( error.plugin === 'gulp-sass' ) {
+
+		this.emit( 'end' );
+
+	}
 
 };
 
@@ -96,7 +100,7 @@ gulp.task( 'js', function() {
 
 	return gulp.src([
 			dirs.src + 'js/*.js',
-			'!' + dirs.src + 'js/lib/*.js'
+			'!' + dirs.src + 'js/vendor/*.js'
 		])
 
 		.pipe( jshint('.jshintrc') )
@@ -109,7 +113,6 @@ gulp.task( 'js', function() {
 		.pipe( uglify() )
 
 		.pipe( gulp.dest( dirs.assets + 'js' ) )
-
 	;
 
 });

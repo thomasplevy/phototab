@@ -1,7 +1,52 @@
-body {
-	background: linear-gradient( to right, black, white );
+@import
+	"vendor/reset"
+;
+
+$color-grey-lightest: #efefef;
+
+*, *:before, *:after {
+	position: relative;
 }
 
-:fullscreen a {
-    display: flex
+body {
+
+	background: $color-grey-lightest;
+
+	&.authorized {
+		.auth-box { display: none; }
+		.photo-grid { display: block; }
+	}
+
+	&.not-authorized {
+		.auth-box { display: block; }
+		.photo-grid { display: none; }
+	}
+
+	&.authorized,
+	.not-authorized {
+
+		.extension {
+
+			opacity: 1;
+
+		}
+
+	}
+
+}
+
+
+.extension {
+
+	opacity: 0;
+	transition: opacity 1s ease;
+
+}
+
+
+.auth-box,
+.photo-grid {
+
+	display: none;
+
 }
