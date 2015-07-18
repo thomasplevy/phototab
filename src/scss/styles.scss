@@ -1,3 +1,7 @@
 body {
-	background: black;
+	background: linear-gradient( to right, black, white );
+}
+
+:fullscreen a {
+    display: flex
 }

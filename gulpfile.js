@@ -1,6 +1,8 @@
 var
-	gulp = require('gulp')
-	sass = require('gulp-sass');
+	gulp = require('gulp'),
+
+	autoprefixer = require('gulp-autoprefixer'),
+	sass = require('gulp-sass'),
 
 
 
@@ -26,7 +28,11 @@ gulp.task( 'scss', function() {
 			outputStyle: 'compressed',
 		} ).on( 'error', sass.logError ) )
 
-		.pipe( gulp.dest( dirs.assets + 'css' ) );
+		.pipe( autoprefixer( { browsers: [ 'last 2 Chrome versions' ] } ) )
+
+		.pipe( gulp.dest( dirs.assets + 'css' ) )
+	;
+
 });
 
 
